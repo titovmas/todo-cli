@@ -12,17 +12,17 @@ int main() {
 		
 		if (input == "exit") {
 			break;
-		}
-
-		if (input.rfind("add ", 0) == 0) {
+		} else if (input.rfind("add ", 0) == 0) {
 			std::string task = input.substr(4);
 			tasks.push_back(task);
 			std::cout << "Task added: " << task << std::endl;
-		}
-
-		if (input == "list") {
-			for (int i = 0; i < tasks.size(); i++) {
-				std::cout << i + 1 << ". " << tasks[i] << std::endl;
+		} else if (input == "list") {
+			if (tasks.empty()) {
+				std::cout << "No tasks yet." << std::endl;
+			} else {
+				for (size_t i = 0; i < tasks.size(); i++) {
+					std::cout << i + 1 << ". " << tasks[i] << std::endl;
+				}
 			}
 		}
 	}
